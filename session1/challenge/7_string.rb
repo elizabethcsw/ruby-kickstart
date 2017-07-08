@@ -8,9 +8,9 @@
 def pirates_say_arrrrrrrrr(string)
 to_return=""
   rule = false
-  string.size.times { |x|
-    to_return << string[x] if rule
-    rule = (string[x] == "r" || string[x] == "R")
+  string.chars.each { |c|
+    to_return << c if rule
+    rule = (c == "r" || c == "R")
   }
   to_return
 end
