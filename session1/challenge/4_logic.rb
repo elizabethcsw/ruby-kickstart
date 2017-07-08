@@ -10,13 +10,14 @@
 # grade(15, true)   # => "B"
 
 def grade(num_books, reads_books)
-  if num_books<10  && reads_books==false
-    "D"
-  elsif num_books>=10 && num_books<=20 && reads_books == false|| num_books<10  && reads_books
-    "C"
-  elsif num_books>=10 && num_books<=20 && reads_books || num_books>20 && reads_books==false
-    "B"
-  else
-    "A"
-  end
+if num_books<10 && !reads_books
+  "D"
+elsif num_books>=10 && num_books<=20 && !reads_books || num_books<10 && reads_books
+ "C"
+elsif num_books>20 && !reads_books|| num_books>=10 && num_books<=20 && reads_books
+  "B"
+else num_books>20 && reads_books
+  "A"
+end
+
 end

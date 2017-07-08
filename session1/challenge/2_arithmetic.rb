@@ -13,7 +13,6 @@ def arithmetic2(a, b)
     a.to_f/2
   else
     b.to_f/2
-
   end
 
 end
