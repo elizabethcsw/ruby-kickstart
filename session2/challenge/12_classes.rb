@@ -6,7 +6,7 @@
 # are reduced to lowest terms (ie 20/60 becomes 1/3)
 # This will require finding the greatest common divisor for the numerator and denominator
 # then dividing both by that number.
-# I have included a greatest common divisor method for you
+# I have included a 9 method for you
 # You should also define a method, to_s, that will represent the Fraction as a String
 #
 # EXAMPLE:
@@ -21,8 +21,31 @@
 # f.to_f               # => 0.5
 
 class Fraction
+  attr_accessor :numerator, :denominator
+
+  def initialize(numerator, denominator)
+    @numerator = numerator
+    @denominator = denominator
+  end
+
+  def to_s
+    "#{numerator}/#{denominator}"
+  end
+
+  def to_f
+    n=numerator/denominator.to_f
+    n.round(1)
+  end
+
+  def lowest
+    gcd1=gcd(numerator,denominator)
+    Fraction.new(numerator/gcd1, denominator/gcd1)
+  end
+
   def gcd(a,b)
-    return a if b == 0
+    return b if a % b == 0
     gcd(b, a%b)
   end
 end
+
+f = Fraction.new 20, 60

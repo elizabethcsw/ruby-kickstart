@@ -7,5 +7,12 @@
 
 class String
   def every_other_char
+    answer=""
+    self.each_char.with_index { |char, index|
+      answer << char if index.even?
+    }
+    answer
   end
 end
+
+puts "abcdefg".every_other_char
