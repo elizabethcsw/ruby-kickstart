@@ -8,3 +8,20 @@
 # staircase 4  # => {1 => [], 3 => [2]}
 # staircase 5  # => {1 => [], 3 => [2], 5 =>[2, 4]}
 
+
+def staircase(num)
+  hash1={}
+
+  #setup an array with odd values up to num
+  #or odd_keys=0.upto(num).select{|x| x%2!=0}
+  odd_keys=(1..num).select{|x| x%2!=0}
+
+  #setup proc to produce array of even values up to key
+  even_proc=Proc.new{|x| x%2==0}
+
+  #invoke .each on the odd array to create the revelant hash
+  odd_keys.each { |x|
+    hash1[x]=(1..x).select(&even_proc)
+  }
+  hash1
+end
